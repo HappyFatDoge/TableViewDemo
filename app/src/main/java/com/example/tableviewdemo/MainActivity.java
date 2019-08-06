@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initData();
 
-//        drawTableView();
-        drawGridTableView();
+        drawTableView();
+//        drawGridTableView();
     }
 
     /**
@@ -52,12 +52,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void drawTableView() {
-//        com.example.tableviewdemo.customview.TableView tableView = findViewById(R.id.coustomview_table_view);
-//        List<String> header = new ArrayList<>();
-//        header.add("出版社");
-//        header.add("版本");
-//        header.add("年级");
-//        tableView.setHeader(header);
+        com.example.tableviewdemo.customview.TableView tableView = findViewById(R.id.coustomview_table_view);
+        List<String> header = new ArrayList<>();
+        header.add("出版社");
+        header.add("版本");
+        header.add("年级");
+        tableView.setHeader(header);
     }
 
     private void initData() {

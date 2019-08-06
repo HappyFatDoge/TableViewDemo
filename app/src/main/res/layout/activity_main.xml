@@ -17,14 +17,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!--<com.example.tableviewdemo.customview.TableView-->
-                <!--android:id="@+id/coustomview_table_view"-->
-                <!--android:layout_width="700dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_gravity="center_horizontal"-->
-                <!--android:layout_marginBottom="50dp"-->
-                <!--android:layout_marginTop="50dp"-->
-                <!--/>-->
+            <com.example.tableviewdemo.customview.TableView
+                android:id="@+id/coustomview_table_view"
+                android:layout_width="700dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                />
 
             <!--自定义GridLayout-->
             <com.example.tableviewdemo.gridlayout.TableView

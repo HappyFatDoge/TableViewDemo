@@ -56,6 +56,7 @@ public class TableView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        Log.d(TAG, "calculateRowCount: " + calculateRowCount());
         int height = MeasureSpec.makeMeasureSpec((2 * TEXT_VERTICAL_PADDING + mTextSize) * calculateRowCount(), heightMode);
         setMeasuredDimension(widthMeasureSpec, height);
     }
@@ -65,7 +66,7 @@ public class TableView extends View {
         if (mHeaderList != null) {
             count ++;
         }
-        if (TextUtils.isEmpty(mFooterStr)) {
+        if (!TextUtils.isEmpty(mFooterStr)) {
             count ++;
         }
         if (mItemList != null) {
@@ -79,16 +80,17 @@ public class TableView extends View {
         super.onDraw(canvas);
         drawBorder(canvas);
 
+        int startX = 0;
         for (int index = 0; index < mHeaderList.size(); ++ index) {
             String header = mHeaderList.get(index);
-            int x = TEXT_HORIZONTAL_PADDING;
+            int x = startX + TEXT_HORIZONTAL_PADDING;
             int y = mTextSize + TEXT_VERTICAL_PADDING;
             mPaint.setTextSize(mTextSize);
             mPaint.setColor(mTextColor);
             canvas.drawText(header, x, y, mPaint);
 
-            int width = (int) mPaint.measureText(header) + 2 * TEXT_HORIZONTAL_PADDING;
-            drawUnderLine(canvas, 0, y + TEXT_VERTICAL_PADDING, width );
+            startX += (int) mPaint.measureText(header) + 2 * TEXT_HORIZONTAL_PADDING;
+//            drawUnderLine(canvas, 0, y + TEXT_VERTICAL_PADDING, width );
         }
     }
 
@@ -119,6 +121,6 @@ public class TableView extends View {
 
     public void setHeader(List<String> header) {
         this.mHeaderList = header;
-        invalidate();
+        requestLayout();
     }
 }
